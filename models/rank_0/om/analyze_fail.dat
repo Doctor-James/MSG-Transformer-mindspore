@@ -1,0 +1,691 @@
+# 1.This file shows the parsed IR info when graph evaluating failed to help find the problem.
+# 2.You can search the last `------------------------>` to the node which is inferred failed.
+# 3.Refer to https://www.mindspore.cn/search?inputValue=analyze_fail.dat to get more instructions.
+# ===============================================================================
+
+# [No.1] construct_wrapper.1
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(608)/    def construct(self, x):/
+funcgraph fg_1(
+        %para1 : Tensor(F32)[1, 3, 224, 224]    # x
+        , %para2 : Ref[Tensor(F32)][1000]    # head.bias
+        , %para3 : Ref[Tensor(F32)][1000, 768]    # head.weight
+        , %para4 : Ref[Tensor(F64)][1, 16, 1, 96]    # msg_tokens
+        , %para5 : Ref[Tensor(F32)][768]    # norm.gamma
+        , %para6 : Ref[Tensor(F32)][768]    # norm.beta
+        , %para7 : Ref[Tensor(F32)][96]    # patch_embed.norm.gamma
+        , %para8 : Ref[Tensor(F32)][96]    # patch_embed.norm.beta
+        , %para9 : Ref[Tensor(F32)][96, 3, 7, 7]    # patch_embed.proj.weight
+        , %para10 : Ref[Tensor(F32)][96]    # 0.blocks.0.norm2.gamma
+        , %para11 : Ref[Tensor(F32)][96]    # 0.blocks.0.norm2.beta
+        , %para12 : Ref[Tensor(F32)][96]    # 0.blocks.1.norm2.gamma
+        , %para13 : Ref[Tensor(F32)][96]    # 0.blocks.1.norm2.beta
+        , %para14 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.0.norm2.gamma
+        , %para15 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.0.norm2.beta
+        , %para16 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.1.norm2.gamma
+        , %para17 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.1.norm2.beta
+        , %para18 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.0.norm2.gamma
+        , %para19 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.0.norm2.beta
+        , %para20 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.1.norm2.gamma
+        , %para21 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.1.norm2.beta
+        , %para22 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.2.norm2.gamma
+        , %para23 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.2.norm2.beta
+        , %para24 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.3.norm2.gamma
+        , %para25 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.3.norm2.beta
+        , %para26 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.4.norm2.gamma
+        , %para27 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.4.norm2.beta
+        , %para28 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.5.norm2.gamma
+        , %para29 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.5.norm2.beta
+        , %para30 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.0.norm2.gamma
+        , %para31 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.0.norm2.beta
+        , %para32 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.1.norm2.gamma
+        , %para33 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.1.norm2.beta
+        , %para34 : Ref[Tensor(F32)][96]    # 0.blocks.0.norm1.gamma
+        , %para35 : Ref[Tensor(F32)][96]    # 0.blocks.0.norm1.beta
+        , %para36 : Ref[Tensor(F32)][96]    # 0.blocks.1.norm1.gamma
+        , %para37 : Ref[Tensor(F32)][96]    # 0.blocks.1.norm1.beta
+        , %para38 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.0.norm1.gamma
+        , %para39 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.0.norm1.beta
+        , %para40 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.1.norm1.gamma
+        , %para41 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.1.norm1.beta
+        , %para42 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.0.norm1.gamma
+        , %para43 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.0.norm1.beta
+        , %para44 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.1.norm1.gamma
+        , %para45 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.1.norm1.beta
+        , %para46 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.2.norm1.gamma
+        , %para47 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.2.norm1.beta
+        , %para48 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.3.norm1.gamma
+        , %para49 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.3.norm1.beta
+        , %para50 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.4.norm1.gamma
+        , %para51 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.4.norm1.beta
+        , %para52 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.5.norm1.gamma
+        , %para53 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.5.norm1.beta
+        , %para54 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.0.norm1.gamma
+        , %para55 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.0.norm1.beta
+        , %para56 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.1.norm1.gamma
+        , %para57 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.1.norm1.beta
+        , %para58 : Ref[Tensor(F32)][192]    # 0.downsample.norm.gamma
+        , %para59 : Ref[Tensor(F32)][192]    # 0.downsample.norm.beta
+        , %para60 : Ref[Tensor(F32)][384]    # 0.blocks.1.downsample.norm.gamma
+        , %para61 : Ref[Tensor(F32)][384]    # 0.blocks.1.downsample.norm.beta
+        , %para62 : Ref[Tensor(F32)][768]    # 0.blocks.2.downsample.norm.gamma
+        , %para63 : Ref[Tensor(F32)][768]    # 0.blocks.2.downsample.norm.beta
+        , %para64 : Ref[Tensor(F64)][3, 2, 1, 1]    # 0.blocks.0.attn.rel_pos_msg
+        , %para65 : Ref[Tensor(F64)][3, 2, 1, 1]    # 0.blocks.1.attn.rel_pos_msg
+        , %para66 : Ref[Tensor(F64)][6, 2, 1, 1]    # 0.blocks.1.blocks.0.attn.rel_pos_msg
+        , %para67 : Ref[Tensor(F64)][6, 2, 1, 1]    # 0.blocks.1.blocks.1.attn.rel_pos_msg
+        , %para68 : Ref[Tensor(F64)][12, 2, 1, 1]    # 0.blocks.2.blocks.0.attn.rel_pos_msg
+        , %para69 : Ref[Tensor(F64)][12, 2, 1, 1]    # 0.blocks.2.blocks.1.attn.rel_pos_msg
+        , %para70 : Ref[Tensor(F64)][12, 2, 1, 1]    # 0.blocks.2.blocks.2.attn.rel_pos_msg
+        , %para71 : Ref[Tensor(F64)][12, 2, 1, 1]    # 0.blocks.2.blocks.3.attn.rel_pos_msg
+        , %para72 : Ref[Tensor(F64)][12, 2, 1, 1]    # 0.blocks.2.blocks.4.attn.rel_pos_msg
+        , %para73 : Ref[Tensor(F64)][12, 2, 1, 1]    # 0.blocks.2.blocks.5.attn.rel_pos_msg
+        , %para74 : Ref[Tensor(F64)][24, 2, 1, 1]    # 0.blocks.3.blocks.0.attn.rel_pos_msg
+        , %para75 : Ref[Tensor(F64)][24, 2, 1, 1]    # 0.blocks.3.blocks.1.attn.rel_pos_msg
+        , %para76 : Ref[Tensor(F32)][192, 96, 3, 3]    # 0.downsample.reduction.weight
+        , %para77 : Ref[Tensor(F32)][384, 192, 3, 3]    # 0.blocks.1.downsample.reduction.weight
+        , %para78 : Ref[Tensor(F32)][768, 384, 3, 3]    # 0.blocks.2.downsample.reduction.weight
+        , %para79 : Ref[Tensor(F32)][384]    # 0.blocks.0.mlp.fc1.bias
+        , %para80 : Ref[Tensor(F32)][384, 96]    # 0.blocks.0.mlp.fc1.weight
+        , %para81 : Ref[Tensor(F32)][384]    # 0.blocks.1.mlp.fc1.bias
+        , %para82 : Ref[Tensor(F32)][384, 96]    # 0.blocks.1.mlp.fc1.weight
+        , %para83 : Ref[Tensor(F32)][768]    # 0.blocks.1.blocks.0.mlp.fc1.bias
+        , %para84 : Ref[Tensor(F32)][768, 192]    # 0.blocks.1.blocks.0.mlp.fc1.weight
+        , %para85 : Ref[Tensor(F32)][768]    # 0.blocks.1.blocks.1.mlp.fc1.bias
+        , %para86 : Ref[Tensor(F32)][768, 192]    # 0.blocks.1.blocks.1.mlp.fc1.weight
+        , %para87 : Ref[Tensor(F32)][1536]    # 0.blocks.2.blocks.0.mlp.fc1.bias
+        , %para88 : Ref[Tensor(F32)][1536, 384]    # 0.blocks.2.blocks.0.mlp.fc1.weight
+        , %para89 : Ref[Tensor(F32)][1536]    # 0.blocks.2.blocks.1.mlp.fc1.bias
+        , %para90 : Ref[Tensor(F32)][1536, 384]    # 0.blocks.2.blocks.1.mlp.fc1.weight
+        , %para91 : Ref[Tensor(F32)][1536]    # 0.blocks.2.blocks.2.mlp.fc1.bias
+        , %para92 : Ref[Tensor(F32)][1536, 384]    # 0.blocks.2.blocks.2.mlp.fc1.weight
+        , %para93 : Ref[Tensor(F32)][1536]    # 0.blocks.2.blocks.3.mlp.fc1.bias
+        , %para94 : Ref[Tensor(F32)][1536, 384]    # 0.blocks.2.blocks.3.mlp.fc1.weight
+        , %para95 : Ref[Tensor(F32)][1536]    # 0.blocks.2.blocks.4.mlp.fc1.bias
+        , %para96 : Ref[Tensor(F32)][1536, 384]    # 0.blocks.2.blocks.4.mlp.fc1.weight
+        , %para97 : Ref[Tensor(F32)][1536]    # 0.blocks.2.blocks.5.mlp.fc1.bias
+        , %para98 : Ref[Tensor(F32)][1536, 384]    # 0.blocks.2.blocks.5.mlp.fc1.weight
+        , %para99 : Ref[Tensor(F32)][3072]    # 0.blocks.3.blocks.0.mlp.fc1.bias
+        , %para100 : Ref[Tensor(F32)][3072, 768]    # 0.blocks.3.blocks.0.mlp.fc1.weight
+        , %para101 : Ref[Tensor(F32)][3072]    # 0.blocks.3.blocks.1.mlp.fc1.bias
+        , %para102 : Ref[Tensor(F32)][3072, 768]    # 0.blocks.3.blocks.1.mlp.fc1.weight
+        , %para103 : Ref[Tensor(F32)][96]    # 0.blocks.0.mlp.fc2.bias
+        , %para104 : Ref[Tensor(F32)][96, 384]    # 0.blocks.0.mlp.fc2.weight
+        , %para105 : Ref[Tensor(F64)][169, 3]    # 0.blocks.0.attn.relative_position_bias_table
+        , %para106 : Ref[Tensor(F32)][96]    # 0.blocks.1.mlp.fc2.bias
+        , %para107 : Ref[Tensor(F32)][96, 384]    # 0.blocks.1.mlp.fc2.weight
+        , %para108 : Ref[Tensor(F64)][169, 3]    # 0.blocks.1.attn.relative_position_bias_table
+        , %para109 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.0.mlp.fc2.bias
+        , %para110 : Ref[Tensor(F32)][192, 768]    # 0.blocks.1.blocks.0.mlp.fc2.weight
+        , %para111 : Ref[Tensor(F64)][169, 6]    # 0.blocks.1.blocks.0.attn.relative_position_bias_table
+        , %para112 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.1.mlp.fc2.bias
+        , %para113 : Ref[Tensor(F32)][192, 768]    # 0.blocks.1.blocks.1.mlp.fc2.weight
+        , %para114 : Ref[Tensor(F64)][169, 6]    # 0.blocks.1.blocks.1.attn.relative_position_bias_table
+        , %para115 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.0.mlp.fc2.bias
+        , %para116 : Ref[Tensor(F32)][384, 1536]    # 0.blocks.2.blocks.0.mlp.fc2.weight
+        , %para117 : Ref[Tensor(F64)][169, 12]    # 0.blocks.2.blocks.0.attn.relative_position_bias_table
+        , %para118 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.1.mlp.fc2.bias
+        , %para119 : Ref[Tensor(F32)][384, 1536]    # 0.blocks.2.blocks.1.mlp.fc2.weight
+        , %para120 : Ref[Tensor(F64)][169, 12]    # 0.blocks.2.blocks.1.attn.relative_position_bias_table
+        , %para121 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.2.mlp.fc2.bias
+        , %para122 : Ref[Tensor(F32)][384, 1536]    # 0.blocks.2.blocks.2.mlp.fc2.weight
+        , %para123 : Ref[Tensor(F64)][169, 12]    # 0.blocks.2.blocks.2.attn.relative_position_bias_table
+        , %para124 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.3.mlp.fc2.bias
+        , %para125 : Ref[Tensor(F32)][384, 1536]    # 0.blocks.2.blocks.3.mlp.fc2.weight
+        , %para126 : Ref[Tensor(F64)][169, 12]    # 0.blocks.2.blocks.3.attn.relative_position_bias_table
+        , %para127 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.4.mlp.fc2.bias
+        , %para128 : Ref[Tensor(F32)][384, 1536]    # 0.blocks.2.blocks.4.mlp.fc2.weight
+        , %para129 : Ref[Tensor(F64)][169, 12]    # 0.blocks.2.blocks.4.attn.relative_position_bias_table
+        , %para130 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.5.mlp.fc2.bias
+        , %para131 : Ref[Tensor(F32)][384, 1536]    # 0.blocks.2.blocks.5.mlp.fc2.weight
+        , %para132 : Ref[Tensor(F64)][169, 12]    # 0.blocks.2.blocks.5.attn.relative_position_bias_table
+        , %para133 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.0.mlp.fc2.bias
+        , %para134 : Ref[Tensor(F32)][768, 3072]    # 0.blocks.3.blocks.0.mlp.fc2.weight
+        , %para135 : Ref[Tensor(F64)][169, 24]    # 0.blocks.3.blocks.0.attn.relative_position_bias_table
+        , %para136 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.1.mlp.fc2.bias
+        , %para137 : Ref[Tensor(F32)][768, 3072]    # 0.blocks.3.blocks.1.mlp.fc2.weight
+        , %para138 : Ref[Tensor(F64)][169, 24]    # 0.blocks.3.blocks.1.attn.relative_position_bias_table
+        , %para139 : Ref[Tensor(F32)][96]    # 0.blocks.0.attn.proj.bias
+        , %para140 : Ref[Tensor(F32)][96, 96]    # 0.blocks.0.attn.proj.weight
+        , %para141 : Ref[Tensor(F32)][96]    # 0.blocks.1.attn.proj.bias
+        , %para142 : Ref[Tensor(F32)][96, 96]    # 0.blocks.1.attn.proj.weight
+        , %para143 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.0.attn.proj.bias
+        , %para144 : Ref[Tensor(F32)][192, 192]    # 0.blocks.1.blocks.0.attn.proj.weight
+        , %para145 : Ref[Tensor(F32)][192]    # 0.blocks.1.blocks.1.attn.proj.bias
+        , %para146 : Ref[Tensor(F32)][192, 192]    # 0.blocks.1.blocks.1.attn.proj.weight
+        , %para147 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.0.attn.proj.bias
+        , %para148 : Ref[Tensor(F32)][384, 384]    # 0.blocks.2.blocks.0.attn.proj.weight
+        , %para149 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.1.attn.proj.bias
+        , %para150 : Ref[Tensor(F32)][384, 384]    # 0.blocks.2.blocks.1.attn.proj.weight
+        , %para151 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.2.attn.proj.bias
+        , %para152 : Ref[Tensor(F32)][384, 384]    # 0.blocks.2.blocks.2.attn.proj.weight
+        , %para153 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.3.attn.proj.bias
+        , %para154 : Ref[Tensor(F32)][384, 384]    # 0.blocks.2.blocks.3.attn.proj.weight
+        , %para155 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.4.attn.proj.bias
+        , %para156 : Ref[Tensor(F32)][384, 384]    # 0.blocks.2.blocks.4.attn.proj.weight
+        , %para157 : Ref[Tensor(F32)][384]    # 0.blocks.2.blocks.5.attn.proj.bias
+        , %para158 : Ref[Tensor(F32)][384, 384]    # 0.blocks.2.blocks.5.attn.proj.weight
+        , %para159 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.0.attn.proj.bias
+        , %para160 : Ref[Tensor(F32)][768, 768]    # 0.blocks.3.blocks.0.attn.proj.weight
+        , %para161 : Ref[Tensor(F32)][768]    # 0.blocks.3.blocks.1.attn.proj.bias
+        , %para162 : Ref[Tensor(F32)][768, 768]    # 0.blocks.3.blocks.1.attn.proj.weight
+        , %para163 : Ref[Tensor(F32)][288]    # 0.blocks.0.attn.qkv.bias
+        , %para164 : Ref[Tensor(F32)][288, 96]    # 0.blocks.0.attn.qkv.weight
+        , %para165 : Ref[Tensor(F32)][288]    # 0.blocks.1.attn.qkv.bias
+        , %para166 : Ref[Tensor(F32)][288, 96]    # 0.blocks.1.attn.qkv.weight
+        , %para167 : Ref[Tensor(F32)][576]    # 0.blocks.1.blocks.0.attn.qkv.bias
+        , %para168 : Ref[Tensor(F32)][576, 192]    # 0.blocks.1.blocks.0.attn.qkv.weight
+        , %para169 : Ref[Tensor(F32)][576]    # 0.blocks.1.blocks.1.attn.qkv.bias
+        , %para170 : Ref[Tensor(F32)][576, 192]    # 0.blocks.1.blocks.1.attn.qkv.weight
+        , %para171 : Ref[Tensor(F32)][1152]    # 0.blocks.2.blocks.0.attn.qkv.bias
+        , %para172 : Ref[Tensor(F32)][1152, 384]    # 0.blocks.2.blocks.0.attn.qkv.weight
+        , %para173 : Ref[Tensor(F32)][1152]    # 0.blocks.2.blocks.1.attn.qkv.bias
+        , %para174 : Ref[Tensor(F32)][1152, 384]    # 0.blocks.2.blocks.1.attn.qkv.weight
+        , %para175 : Ref[Tensor(F32)][1152]    # 0.blocks.2.blocks.2.attn.qkv.bias
+        , %para176 : Ref[Tensor(F32)][1152, 384]    # 0.blocks.2.blocks.2.attn.qkv.weight
+        , %para177 : Ref[Tensor(F32)][1152]    # 0.blocks.2.blocks.3.attn.qkv.bias
+        , %para178 : Ref[Tensor(F32)][1152, 384]    # 0.blocks.2.blocks.3.attn.qkv.weight
+        , %para179 : Ref[Tensor(F32)][1152]    # 0.blocks.2.blocks.4.attn.qkv.bias
+        , %para180 : Ref[Tensor(F32)][1152, 384]    # 0.blocks.2.blocks.4.attn.qkv.weight
+        , %para181 : Ref[Tensor(F32)][1152]    # 0.blocks.2.blocks.5.attn.qkv.bias
+        , %para182 : Ref[Tensor(F32)][1152, 384]    # 0.blocks.2.blocks.5.attn.qkv.weight
+        , %para183 : Ref[Tensor(F32)][2304]    # 0.blocks.3.blocks.0.attn.qkv.bias
+        , %para184 : Ref[Tensor(F32)][2304, 768]    # 0.blocks.3.blocks.0.attn.qkv.weight
+        , %para185 : Ref[Tensor(F32)][2304]    # 0.blocks.3.blocks.1.attn.qkv.bias
+        , %para186 : Ref[Tensor(F32)][2304, 768]    # 0.blocks.3.blocks.1.attn.qkv.weight
+    ) {
+
+#------------------------> 0
+    %1 = FuncGraph::fg_55(%para1)    #(Tensor(F32)[1, 3, 224, 224])    # fg_55=construct.55 #scope: Default
+#[CNode]69
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(611)/        return x/#[CNode]70
+}
+# order:
+#   1: construct_wrapper.1:[CNode]69{[0]: ValueNode<FuncGraph> construct.55, [1]: x}
+#   2: construct_wrapper.1:[CNode]70{[0]: ValueNode<Primitive> Return, [1]: [CNode]69}
+
+
+# [No.2] construct.55
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(608)/    def construct(self, x):/
+funcgraph fg_55[fg_1](
+        %para187 : Tensor(F32)[1, 3, 224, 224]    # x
+    ) {
+
+#------------------------> 1
+    %1 = FuncGraph::fg_56(%para187)    #(Tensor(F32)[1, 3, 224, 224])    # fg_56=forward_features.56 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(609)/        x = self.forward_features(x)/#x
+    %2 = FuncGraph::fg_71(%1)    #(Undefined)    # fg_71=construct.71 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(610)/        x = self.head(x)/#x
+    Primitive::Return{prim_type=1}(%2)    #(Undefined) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(611)/        return x/#[CNode]72
+}
+# order:
+#   1: construct.55:x{[0]: ValueNode<FuncGraph> forward_features.56, [1]: x}
+#   2: construct.55:x{[0]: ValueNode<FuncGraph> construct.71, [1]: x}
+#   3: construct.55:[CNode]72{[0]: ValueNode<Primitive> Return, [1]: x}
+
+
+# [No.3] forward_features.56
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(587)/    def forward_features(self, x):/
+funcgraph fg_56[fg_1](
+        %para188 : Tensor(F32)[1, 3, 224, 224]    # x
+    ) {
+    %1 : Tensor(F32)[1, 56, 56, 96] = FuncGraph::fg_73(%para188)    #(Tensor(F32)[1, 3, 224, 224])    # fg_73=construct.73 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(588)/        x = self.patch_embed(x)/#x
+    %2 : Tuple[I64*4] = Primitive::getattr{prim_type=1}(%1, "shape")    #(Tensor(F32)[1, 56, 56, 96], String) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(589)/        B = x.shape[0]/#[CNode]74
+    %3 : I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%2, I64(0))    #(Tuple[I64*4], I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(589)/        B = x.shape[0]/#B
+    %4 : I64 = Primitive::stop_gradient{prim_type=1}(%3)    #(I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(609)/        x = self.forward_features(x)/#[CNode]75
+    %5 : Bool = FuncGraph::fg_76(Bool(0))    #(Bool)    # fg_76=bool_.76 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(590)/        if self.ape:/#[CNode]77
+    %6 : Func = Primitive::Switch{prim_type=1}(%5, FuncGraph::fg_78, FuncGraph::fg_79)    #(Bool, Func, Func)    # fg_78=✓forward_features.78, fg_79=✗forward_features.79 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(590)/        if self.ape:/#[CNode]80
+    %7 : Tensor(F32)[1, 56, 56, 96] = %6() #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(590)/        if self.ape:/#[CNode]81
+
+#------------------------> 2
+    %8 = FuncGraph::fg_57(%7)    #(Tensor(F32)[1, 56, 56, 96])    # fg_57=↓forward_features.57 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(609)/        x = self.forward_features(x)/#[CNode]82
+    %9 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%8, %4)    #(Undefined, I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(609)/        x = self.forward_features(x)/#[CNode]83
+    Primitive::Return{prim_type=1}(%9)    #(Undefined) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(590)/        if self.ape:/#[CNode]84
+}
+# order:
+#   1: forward_features.56:x{[0]: ValueNode<FuncGraph> construct.73, [1]: x}
+#   2: forward_features.56:[CNode]74{[0]: ValueNode<Primitive> getattr, [1]: x, [2]: ValueNode<StringImm> shape}
+#   3: forward_features.56:B{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]74, [2]: ValueNode<Int64Imm> 0}
+#   4: forward_features.56:[CNode]77{[0]: ValueNode<FuncGraph> bool_.76, [1]: ValueNode<BoolImm> false}
+#   5: forward_features.56:[CNode]80{[0]: ValueNode<Primitive> Switch, [1]: [CNode]77, [2]: ValueNode<FuncGraph> ✓forward_features.78, [3]: ValueNode<FuncGraph> ✗forward_features.79}
+#   6: forward_features.56:[CNode]81{[0]: [CNode]80}
+#   7: forward_features.56:[CNode]82{[0]: ValueNode<FuncGraph> ↓forward_features.57, [1]: [CNode]81}
+#   8: forward_features.56:[CNode]83{[0]: ValueNode<Primitive> Depend, [1]: [CNode]82, [2]: [CNode]75}
+#   9: forward_features.56:[CNode]84{[0]: ValueNode<Primitive> Return, [1]: [CNode]83}
+
+
+# [No.4] ↓forward_features.57
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(590)/        if self.ape:/
+funcgraph fg_57[fg_1](
+        %para189 : Tensor(F32)[1, 56, 56, 96]    # Φx
+    ) {
+    %1 : Bool = DoSignaturePrimitive::S-Prim-not_equal{prim_type=1}(F32(0), I64(0))    #(F32, I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(593)/        if (self.drop_rate != 0):/#[CNode]85
+    %2 : Bool = FuncGraph::fg_76(%1)    #(Bool)    # fg_76=bool_.76 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(593)/        if (self.drop_rate != 0):/#[CNode]86
+    %3 : Func = Primitive::Switch{prim_type=1}(%2, FuncGraph::fg_87, FuncGraph::fg_88)    #(Bool, Func, Func)    # fg_87=✓↓forward_features.87, fg_88=✗↓forward_features.88 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(593)/        if (self.drop_rate != 0):/#[CNode]89
+    %4 : Tensor(F32)[1, 56, 56, 96] = %3() #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(593)/        if (self.drop_rate != 0):/#[CNode]90
+
+#------------------------> 3
+    %5 = FuncGraph::fg_58(%4)    #(Tensor(F32)[1, 56, 56, 96])    # fg_58=↓↓forward_features.58 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(609)/        x = self.forward_features(x)/#[CNode]91
+    Primitive::Return{prim_type=1}(%5)    #(Undefined) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(593)/        if (self.drop_rate != 0):/#[CNode]92
+}
+# order:
+#   1: ↓forward_features.57:[CNode]85{[0]: ValueNode<DoSignaturePrimitive> S-Prim-not_equal, [1]: ValueNode<FP32Imm> 0.000000, [2]: ValueNode<Int64Imm> 0}
+#   2: ↓forward_features.57:[CNode]86{[0]: ValueNode<FuncGraph> bool_.76, [1]: [CNode]85}
+#   3: ↓forward_features.57:[CNode]89{[0]: ValueNode<Primitive> Switch, [1]: [CNode]86, [2]: ValueNode<FuncGraph> ✓↓forward_features.87, [3]: ValueNode<FuncGraph> ✗↓forward_features.88}
+#   4: ↓forward_features.57:[CNode]90{[0]: [CNode]89}
+#   5: ↓forward_features.57:[CNode]91{[0]: ValueNode<FuncGraph> ↓↓forward_features.58, [1]: [CNode]90}
+#   6: ↓forward_features.57:[CNode]92{[0]: ValueNode<Primitive> Return, [1]: [CNode]91}
+
+
+# [No.5] ↓↓forward_features.58
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(593)/        if (self.drop_rate != 0):/
+funcgraph fg_58[fg_1](
+        %para190 : Tensor(F32)[1, 56, 56, 96]    # Φx
+    ) {
+    %1 : I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}([I64(4), I64(4), I64(2), I64(1)], I64(0))    #(List[I64*4], I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(596)/        x = window_partition(x, self.window_size, self.shuffle_size[0])/#[CNode]93
+    %2 : Tensor(F32)[4, 16, 49, 96] = FuncGraph::fg_94(%para190, I64(7), %1)    #(Tensor(F32)[1, 56, 56, 96], I64, I64)    # fg_94=window_partition.94 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(596)/        x = window_partition(x, self.window_size, self.shuffle_size[0])/#x
+    %3 : Tuple[I64*4] = Primitive::getattr{prim_type=1}(%2, "shape")    #(Tensor(F32)[4, 16, 49, 96], String) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(597)/        msg_tokens = mindspore.numpy.repeat(self.msg_tokens,x.shape[0],axis=0)/#[CNode]95
+    %4 : I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, I64(0))    #(Tuple[I64*4], I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(597)/        msg_tokens = mindspore.numpy.repeat(self.msg_tokens,x.shape[0],axis=0)/#[CNode]96
+    %5 : Tuple[Ref[Tensor(F64)],I64] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%para4, %4)    #(Ref[Tensor(F64)][1, 16, 1, 96], I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(597)/        msg_tokens = mindspore.numpy.repeat(self.msg_tokens,x.shape[0],axis=0)/#[CNode]97
+    %6 : Tuple[String] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}("axis")    #(String) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(597)/        msg_tokens = mindspore.numpy.repeat(self.msg_tokens,x.shape[0],axis=0)/#[CNode]98
+    %7 : Tuple[I64] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0))    #(I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(597)/        msg_tokens = mindspore.numpy.repeat(self.msg_tokens,x.shape[0],axis=0)/#[CNode]99
+    %8 : Dictionary[[axis,],[Int64]] = DoSignaturePrimitive::S-Prim-make_dict{prim_type=1}(%6, %7)    #(Tuple[String], Tuple[I64]) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(597)/        msg_tokens = mindspore.numpy.repeat(self.msg_tokens,x.shape[0],axis=0)/#[CNode]100
+    %9 : Tensor(F64)[4, 16, 1, 96] = UnpackCall::unpack_call(FuncGraph::fg_101, %5, %8)    #(Func, Tuple[Ref[Tensor(F64)],I64], Dictionary[[axis,],[Int64]])    # fg_101=repeat.101 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(597)/        msg_tokens = mindspore.numpy.repeat(self.msg_tokens,x.shape[0],axis=0)/#msg_tokens
+    %10 : Func = ClassType() #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(598)/        cast = mindspore.ops.Cast()/#cast
+    %11 : Tensor(F64)[4, 16, 49, 96] = %10(%2, F64)    #(Tensor(F32)[4, 16, 49, 96], TypeType) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(599)/        x = cast(x, mindspore.float64)/#x
+    %12 : Tuple[Tensor(F64)*2] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%9, %11)    #(Tensor(F64)[4, 16, 1, 96], Tensor(F64)[4, 16, 49, 96]) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(600)/        x = mindspore.ops.concat((msg_tokens, x), axis=2)/#[CNode]102
+    %13 : Tuple[Tuple[Tensor(F64)*2]] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%12)    #(Tuple[Tensor(F64)*2]) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(600)/        x = mindspore.ops.concat((msg_tokens, x), axis=2)/#[CNode]103
+    %14 : Tuple[String] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}("axis")    #(String) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(600)/        x = mindspore.ops.concat((msg_tokens, x), axis=2)/#[CNode]104
+    %15 : Tuple[I64] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(2))    #(I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(600)/        x = mindspore.ops.concat((msg_tokens, x), axis=2)/#[CNode]105
+    %16 : Dictionary[[axis,],[Int64]] = DoSignaturePrimitive::S-Prim-make_dict{prim_type=1}(%14, %15)    #(Tuple[String], Tuple[I64]) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(600)/        x = mindspore.ops.concat((msg_tokens, x), axis=2)/#[CNode]106
+    %17 : Tensor(F64)[4, 16, 50, 96] = UnpackCall::unpack_call(FuncGraph::fg_107, %13, %16)    #(Func, Tuple[Tuple[Tensor(F64)*2]], Dictionary[[axis,],[Int64]])    # fg_107=concat.107 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(600)/        x = mindspore.ops.concat((msg_tokens, x), axis=2)/#x
+
+#------------------------> 4
+    %18 = FuncGraph::fg_59(I64(0), %17)    #(I64, Tensor(F64)[4, 16, 50, 96])    # fg_59=⤾↓↓forward_features.59 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]108
+    Primitive::Return{prim_type=1}(%18)    #(Undefined) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]109
+}
+# order:
+#   1: ↓↓forward_features.58:[CNode]93{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: ValueNode<ValueList> [4, 4, 2, 1], [2]: ValueNode<Int64Imm> 0}
+#   2: ↓↓forward_features.58:x{[0]: ValueNode<FuncGraph> window_partition.94, [1]: Φx, [2]: ValueNode<Int64Imm> 7, [3]: [CNode]93}
+#   3: ↓↓forward_features.58:[CNode]95{[0]: ValueNode<Primitive> getattr, [1]: x, [2]: ValueNode<StringImm> shape}
+#   4: ↓↓forward_features.58:[CNode]96{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]95, [2]: ValueNode<Int64Imm> 0}
+#   5: ↓↓forward_features.58:[CNode]97{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: msg_tokens, [2]: [CNode]96}
+#   6: ↓↓forward_features.58:[CNode]98{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<StringImm> axis}
+#   7: ↓↓forward_features.58:[CNode]99{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0}
+#   8: ↓↓forward_features.58:[CNode]100{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_dict, [1]: [CNode]98, [2]: [CNode]99}
+#   9: ↓↓forward_features.58:msg_tokens{[0]: ValueNode<UnpackCall> unpack_call.110, [1]: ValueNode<FuncGraph> repeat.101, [2]: [CNode]97, [3]: [CNode]100}
+#  10: ↓↓forward_features.58:cast{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.Cast'}
+#  11: ↓↓forward_features.58:x{[0]: cast, [1]: x, [2]: ValueNode<Float> Float64}
+#  12: ↓↓forward_features.58:[CNode]102{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: msg_tokens, [2]: x}
+#  13: ↓↓forward_features.58:[CNode]103{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]102}
+#  14: ↓↓forward_features.58:[CNode]104{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<StringImm> axis}
+#  15: ↓↓forward_features.58:[CNode]105{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 2}
+#  16: ↓↓forward_features.58:[CNode]106{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_dict, [1]: [CNode]104, [2]: [CNode]105}
+#  17: ↓↓forward_features.58:x{[0]: ValueNode<UnpackCall> unpack_call.111, [1]: ValueNode<FuncGraph> concat.107, [2]: [CNode]103, [3]: [CNode]106}
+#  18: ↓↓forward_features.58:[CNode]112{[0]: ValueNode<FuncGraph> ms_len.20, [1]: [CNode]113}
+#  19: ↓↓forward_features.58:[CNode]108{[0]: ValueNode<FuncGraph> ⤾↓↓forward_features.59, [1]: ValueNode<Int64Imm> 0, [2]: x}
+#  20: ↓↓forward_features.58:[CNode]109{[0]: ValueNode<Primitive> Return, [1]: [CNode]108}
+
+
+# [No.6] ⤾↓↓forward_features.59
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/
+funcgraph fg_59[fg_58](
+        %para191 : I64    # @[CNode]60
+        , %para192 : Tensor(F64)[4, 16, 50, 96]    # Φx
+    ) {
+    %1 : $(↓↓forward_features.58):Tuple[Func*4] = Primitive::MakeTuple{prim_type=1}(FuncGraph::fg_62, FuncGraph::fg_114, FuncGraph::fg_115, FuncGraph::fg_116)    #(Func, Func, Func, Func)    # fg_62=construct.62, fg_114=construct.114, fg_115=construct.115, fg_116=construct.116 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]113
+    %2 : $(↓↓forward_features.58):I64 = FuncGraph::fg_20(%1)    #(Tuple[Func*4])    # fg_20=ms_len.20 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]112
+    %3 : Bool = MultitypeFuncGraph::less{(Tensor, Number), (Number, Tensor), (Number, Number), (Tensor, Tensor)}(%para191, %2)    #(I64, I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]117
+    %4 : Func = Primitive::Switch{prim_type=1}(%3, FuncGraph::fg_61, FuncGraph::fg_118)    #(Bool, Func, Func)    # fg_61=⥁↓↓forward_features.61, fg_118=↓↓↓forward_features.118 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]119
+
+#------------------------> 5
+    %5 = %4() #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]120
+    Primitive::Return{prim_type=1}(%5)    #(Undefined) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]121
+}
+# order:
+#   1: ⤾↓↓forward_features.59:[CNode]117{[0]: ValueNode<MultitypeFuncGraph> less.16, [1]: @[CNode]60, [2]: [CNode]112}
+#   2: ⤾↓↓forward_features.59:[CNode]119{[0]: ValueNode<Primitive> Switch, [1]: [CNode]117, [2]: ValueNode<FuncGraph> ⥁↓↓forward_features.61, [3]: ValueNode<FuncGraph> ↓↓↓forward_features.118}
+#   3: ⤾↓↓forward_features.59:[CNode]120{[0]: [CNode]119}
+#   4: ⤾↓↓forward_features.59:[CNode]121{[0]: ValueNode<Primitive> Return, [1]: [CNode]120}
+
+
+# [No.7] ⥁↓↓forward_features.61
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/
+funcgraph fg_61[fg_59](
+) {
+    %1 : I64 = MultitypeFuncGraph::add{(Tuple, Tuple), (NoneType, NoneType), (Tuple, Tensor), (Number, Tensor), (Tensor, List), (Number, Number), (Tensor, Tuple), (List, List), (List, Tensor), (Tensor, Tensor), (Tensor, Number), (String, String), (RowTensor, Tensor)}(%para191, I64(1))    #(I64, I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]60
+    %2 : I64 = Primitive::stop_gradient{prim_type=1}(%1)    #(I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(609)/        x = self.forward_features(x)/#[CNode]122
+    %3 : $(↓↓forward_features.58):Tuple[Func*4] = Primitive::MakeTuple{prim_type=1}(FuncGraph::fg_62, FuncGraph::fg_114, FuncGraph::fg_115, FuncGraph::fg_116)    #(Func, Func, Func, Func)    # fg_62=construct.62, fg_114=construct.114, fg_115=construct.115, fg_116=construct.116 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]113
+    %4 : Func = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, %para191)    #(Tuple[Func*4], I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#layer
+
+#------------------------> 6
+    %5 = %4(%para192)    #(Tensor(F64)[4, 16, 50, 96]) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(603)/            x = layer(x)/#x
+    %6 = FuncGraph::fg_59(%1, %5)    #(I64, Undefined)    # fg_59=⤾↓↓forward_features.59 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]123
+    %7 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%6, %2)    #(Undefined, I64) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(609)/        x = self.forward_features(x)/#[CNode]124
+    Primitive::Return{prim_type=1}(%7)    #(Undefined) #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]125
+}
+# order:
+#   1: ⥁↓↓forward_features.61:layer{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]113, [2]: @[CNode]60}
+#   2: ⥁↓↓forward_features.61:[CNode]60{[0]: ValueNode<MultitypeFuncGraph> add.13, [1]: @[CNode]60, [2]: ValueNode<Int64Imm> 1}
+#   3: ⥁↓↓forward_features.61:x{[0]: layer, [1]: Φx}
+#   4: ⥁↓↓forward_features.61:[CNode]123{[0]: ValueNode<FuncGraph> ⤾↓↓forward_features.59, [1]: [CNode]60, [2]: x}
+#   5: ⥁↓↓forward_features.61:[CNode]125{[0]: ValueNode<Primitive> Return, [1]: [CNode]124}
+
+
+# [No.8] construct.62
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(397)/    def construct(self, x):/
+funcgraph fg_62[fg_1](
+        %para193 : Tensor(F64)[4, 16, 50, 96]    # x
+    ) {
+
+#------------------------> 7
+    %1 = FuncGraph::fg_63(I64(0), %para193)    #(I64, Tensor(F64)[4, 16, 50, 96])    # fg_63=⤾construct.63 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]126
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]127
+}
+# order:
+#   1: construct.62:[CNode]128{[0]: ValueNode<FuncGraph> ms_len.20, [1]: [CNode]129}
+#   2: construct.62:[CNode]126{[0]: ValueNode<FuncGraph> ⤾construct.63, [1]: ValueNode<Int64Imm> 0, [2]: x}
+#   3: construct.62:[CNode]127{[0]: ValueNode<Primitive> Return, [1]: [CNode]126}
+
+
+# [No.9] ⤾construct.63
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/
+funcgraph fg_63[fg_62](
+        %para194 : I64    # @[CNode]64
+        , %para195 : Tensor(F64)[4, 16, 50, 96]    # Φx
+    ) {
+    %1 : $(construct.62):Tuple[Func*2] = Primitive::MakeTuple{prim_type=1}(FuncGraph::fg_130, FuncGraph::fg_131)    #(Func, Func)    # fg_130=construct.130, fg_131=construct.131 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]129
+    %2 : $(construct.62):I64 = FuncGraph::fg_20(%1)    #(Tuple[Func*2])    # fg_20=ms_len.20 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]128
+    %3 : Bool = MultitypeFuncGraph::less{(Tensor, Number), (Number, Tensor), (Number, Number), (Tensor, Tensor)}(%para194, %2)    #(I64, I64) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]132
+    %4 : Func = Primitive::Switch{prim_type=1}(%3, FuncGraph::fg_65, FuncGraph::fg_66)    #(Bool, Func, Func)    # fg_65=⥁construct.65, fg_66=↓construct.66 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]133
+
+#------------------------> 12
+    %5 = %4() #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]134
+    Primitive::Return{prim_type=1}(%5)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]135
+}
+# order:
+#   1: ⤾construct.63:[CNode]132{[0]: ValueNode<MultitypeFuncGraph> less.16, [1]: @[CNode]64, [2]: [CNode]128}
+#   2: ⤾construct.63:[CNode]133{[0]: ValueNode<Primitive> Switch, [1]: [CNode]132, [2]: ValueNode<FuncGraph> ⥁construct.65, [3]: ValueNode<FuncGraph> ↓construct.66}
+#   3: ⤾construct.63:[CNode]134{[0]: [CNode]133}
+#   4: ⤾construct.63:[CNode]135{[0]: ValueNode<Primitive> Return, [1]: [CNode]134}
+
+
+# [No.10] ⥁construct.65
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/
+funcgraph fg_65[fg_63](
+) {
+    %1 : I64 = MultitypeFuncGraph::add{(Tuple, Tuple), (NoneType, NoneType), (Tuple, Tensor), (Number, Tensor), (Tensor, List), (Number, Number), (Tensor, Tuple), (List, List), (List, Tensor), (Tensor, Tensor), (Tensor, Number), (String, String), (RowTensor, Tensor)}(%para194, I64(1))    #(I64, I64) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]64
+    %2 : I64 = Primitive::stop_gradient{prim_type=1}(%1)    #(I64) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]136
+    %3 : $(construct.62):Tuple[Func*2] = Primitive::MakeTuple{prim_type=1}(FuncGraph::fg_130, FuncGraph::fg_131)    #(Func, Func)    # fg_130=construct.130, fg_131=construct.131 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]129
+    %4 : Func = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, %para194)    #(Tuple[Func*2], I64) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#blk
+    %5 : Tensor(F32)[4, 16, 50, 96] = %4(%para195)    #(Tensor(F64)[4, 16, 50, 96]) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(399)/            x = blk(x)/#x
+
+#------------------------> 11
+    %6 = FuncGraph::fg_63(%1, %5)    #(I64, Tensor(F32)[4, 16, 50, 96])    # fg_63=⤾construct.63 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]137
+    %7 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%6, %2)    #(Undefined, I64) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]138
+    Primitive::Return{prim_type=1}(%7)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/#[CNode]139
+}
+# order:
+#   1: ⥁construct.65:blk{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]129, [2]: @[CNode]64}
+#   2: ⥁construct.65:[CNode]64{[0]: ValueNode<MultitypeFuncGraph> add.13, [1]: @[CNode]64, [2]: ValueNode<Int64Imm> 1}
+#   3: ⥁construct.65:x{[0]: blk, [1]: Φx}
+#   4: ⥁construct.65:[CNode]137{[0]: ValueNode<FuncGraph> ⤾construct.63, [1]: [CNode]64, [2]: x}
+#   5: ⥁construct.65:[CNode]139{[0]: ValueNode<Primitive> Return, [1]: [CNode]138}
+
+
+# [No.11] ↓construct.66
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(398)/        for blk in self.blocks:/
+funcgraph fg_66[fg_63](
+) {
+    %1 : Bool = DoSignaturePrimitive::S-Prim-is_not{prim_type=1}(FuncGraph::fg_68, None)    #(Func, NoneType)    # fg_68=construct.68 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]140
+    %2 : Bool = FuncGraph::fg_76(%1)    #(Bool)    # fg_76=bool_.76 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]141
+    %3 : Func = Primitive::Switch{prim_type=1}(%2, FuncGraph::fg_67, FuncGraph::fg_142)    #(Bool, Func, Func)    # fg_67=✓↓construct.67, fg_142=✗↓construct.142 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]143
+
+#------------------------> 13
+    %4 = %3() #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]144
+    %5 = FuncGraph::fg_145(%4)    #(Undefined)    # fg_145=↓↓construct.145 #scope: Default
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(602)/        for layer in self.layers:/#[CNode]146
+    Primitive::Return{prim_type=1}(%5)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]147
+}
+# order:
+#   1: ↓construct.66:[CNode]140{[0]: ValueNode<DoSignaturePrimitive> S-Prim-is_not, [1]: ValueNode<FuncGraph> construct.68, [2]: ValueNode<None> None}
+#   2: ↓construct.66:[CNode]141{[0]: ValueNode<FuncGraph> bool_.76, [1]: [CNode]140}
+#   3: ↓construct.66:[CNode]143{[0]: ValueNode<Primitive> Switch, [1]: [CNode]141, [2]: ValueNode<FuncGraph> ✓↓construct.67, [3]: ValueNode<FuncGraph> ✗↓construct.142}
+#   4: ↓construct.66:[CNode]144{[0]: [CNode]143}
+#   5: ↓construct.66:[CNode]146{[0]: ValueNode<FuncGraph> ↓↓construct.145, [1]: [CNode]144}
+#   6: ↓construct.66:[CNode]147{[0]: ValueNode<Primitive> Return, [1]: [CNode]146}
+
+
+# [No.12] ✓↓construct.67
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/
+funcgraph fg_67[fg_63](
+) {
+
+#------------------------> 14
+    %1 = FuncGraph::fg_68(%para195)    #(Tensor(F32)[4, 16, 50, 96])    # fg_68=construct.68 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(401)/            x = self.downsample(x)/#x
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]148
+}
+# order:
+#   1: ✓↓construct.67:x{[0]: ValueNode<FuncGraph> construct.68, [1]: Φx}
+#   2: ✓↓construct.67:[CNode]148{[0]: ValueNode<Primitive> Return, [1]: x}
+
+
+# [No.13] construct.68
+# In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(301)/    def construct(self, x):/
+funcgraph fg_68[fg_1](
+        %para196 : Tensor(F32)[4, 16, 50, 96]    # Φx
+    ) {
+    %1 : Tuple[I64*4] = Primitive::getattr{prim_type=1}(%para196, "shape")    #(Tensor(F32)[4, 16, 50, 96], String) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(303)/        B_, shuf_size_2, win_size_2, C = x.shape/#[CNode]149
+    %2 : I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%1, I64(0))    #(Tuple[I64*4], I64) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(303)/        B_, shuf_size_2, win_size_2, C = x.shape/#B_
+    %3 : I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}((I64(56), I64(56)), I64(0))    #(Tuple[I64*2], I64) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(319)/        x = window_reverse(x[:, :, 1:], win_size, shuf_size, H, W, nchw=True)/#ΦH
+    %4 : I64 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%1, I64(1))    #(Tuple[I64*4], I64) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(303)/        B_, shuf_size_2, win_size_2, C = x.shape/#shuf_size_2
+    %5 : F64 = DoSignaturePrimitive::S-Prim-pow{prim_type=1}(%4, F32(0.5))    #(I64, F32) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(304)/        shuf_size = int(shuf_size_2 ** 0.5)/#[CNode]150
+
+#------------------------> 15
+    %6 = ClassType(%5)    #(F64) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(319)/        x = window_reverse(x[:, :, 1:], win_size, shuf_size, H, W, nchw=True)/#Φshuf_size
+    %7 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%3, %6)    #(I64, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(306)/        B = B_ // (H//shuf_size//win_size) // (W//shuf_size//win_size)/#[CNode]151
+    %8 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%1, I64(2))    #(Tuple[I64*4], Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(303)/        B_, shuf_size_2, win_size_2, C = x.shape/#win_size_2
+    %9 = DoSignaturePrimitive::S-Prim-pow{prim_type=1}(%8, F32(0.5))    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(305)/        win_size = int(win_size_2 ** 0.5)/#[CNode]152
+    %10 = ClassType(%9)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(319)/        x = window_reverse(x[:, :, 1:], win_size, shuf_size, H, W, nchw=True)/#Φwin_size
+    %11 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%7, %10)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(306)/        B = B_ // (H//shuf_size//win_size) // (W//shuf_size//win_size)/#[CNode]153
+    %12 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%2, %11)    #(I64, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(306)/        B = B_ // (H//shuf_size//win_size) // (W//shuf_size//win_size)/#[CNode]154
+    %13 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}((I64(56), I64(56)), I64(1))    #(Tuple[I64*2], Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(319)/        x = window_reverse(x[:, :, 1:], win_size, shuf_size, H, W, nchw=True)/#ΦW
+    %14 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%13, %6)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(306)/        B = B_ // (H//shuf_size//win_size) // (W//shuf_size//win_size)/#[CNode]155
+    %15 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%14, %10)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(306)/        B = B_ // (H//shuf_size//win_size) // (W//shuf_size//win_size)/#[CNode]156
+    %16 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%12, %15)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(306)/        B = B_ // (H//shuf_size//win_size) // (W//shuf_size//win_size)/#B
+    %17 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%1, I64(3))    #(Tuple[I64*4], Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(303)/        B_, shuf_size_2, win_size_2, C = x.shape/#C
+    %18 = Primitive::MakeTuple{prim_type=1}(%16, %17)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]157
+    %19 = Primitive::stop_gradient{prim_type=1}(%18)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]158
+    %20 = ClassType() #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(308)/        expand_dims = mindspore.ops.ExpandDims()/#expand_dims
+    %21 = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(309)/        temp = expand_dims(x[:, :, 0], 2)/#[CNode]159
+    %22 = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(309)/        temp = expand_dims(x[:, :, 0], 2)/#[CNode]160
+    %23 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%21, %22, I64(0))    #(Undefined, Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(309)/        temp = expand_dims(x[:, :, 0], 2)/#[CNode]161
+    %24 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%para196, %23)    #(Tensor(F32)[4, 16, 50, 96], Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(309)/        temp = expand_dims(x[:, :, 0], 2)/#[CNode]162
+    %25 = %20(%24, I64(2))    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(309)/        temp = expand_dims(x[:, :, 0], 2)/#temp
+    %26 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%3, %10)    #(I64, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(311)/            temp, 1, shuf_size, H//win_size, W//win_size, nchw=True)/#[CNode]163
+    %27 = DoSignaturePrimitive::S-Prim-floordiv{prim_type=1}(%13, %10)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(311)/            temp, 1, shuf_size, H//win_size, W//win_size, nchw=True)/#[CNode]164
+    %28 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%25, I64(1), %6, %26, %27)    #(Undefined, Undefined, Undefined, Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(310)/        msg_token = window_reverse(/#[CNode]165
+    %29 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}("nchw")    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(310)/        msg_token = window_reverse(/#[CNode]166
+    %30 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(Bool(1))    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(310)/        msg_token = window_reverse(/#[CNode]167
+    %31 = DoSignaturePrimitive::S-Prim-make_dict{prim_type=1}(%29, %30)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(310)/        msg_token = window_reverse(/#[CNode]168
+    %32 = UnpackCall::unpack_call(FuncGraph::fg_169, %28, %31)    #(Undefined, Undefined, Undefined)    # fg_169=window_reverse.169 #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(310)/        msg_token = window_reverse(/#msg_token
+    %33 = FuncGraph::fg_170(%32)    #(Undefined)    # fg_170=construct.170 #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(313)/        msg_token = self.reduction(msg_token).transpose(0, 2, 3, 1)/#[CNode]171
+    %34 = Primitive::getattr{prim_type=1}(%33, "transpose")    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(313)/        msg_token = self.reduction(msg_token).transpose(0, 2, 3, 1)/#[CNode]172
+    %35 = %34(I64(0), I64(2), I64(3), I64(1))    #(Undefined, Undefined, Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(313)/        msg_token = self.reduction(msg_token).transpose(0, 2, 3, 1)/#msg_token
+    %36 = FuncGraph::fg_173(%35)    #(Undefined)    # fg_173=construct.173 #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(314)/        msg_token = self.norm(msg_token)/#msg_token
+    %37 = Primitive::getattr{prim_type=1}(%36, "shape")    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(316)/        if msg_token.shape[1] >= self.nxt_shuf_size:/#[CNode]174
+    %38 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%37, I64(1))    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(316)/        if msg_token.shape[1] >= self.nxt_shuf_size:/#[CNode]175
+    %39 = DoSignaturePrimitive::S-Prim-greater_equal{prim_type=1}(%38, I64(4))    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(316)/        if msg_token.shape[1] >= self.nxt_shuf_size:/#[CNode]176
+    %40 = FuncGraph::fg_76(%39)    #(Undefined)    # fg_76=bool_.76 #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(316)/        if msg_token.shape[1] >= self.nxt_shuf_size:/#[CNode]177
+    %41 = Primitive::Switch{prim_type=1}(%40, FuncGraph::fg_178, FuncGraph::fg_179)    #(Undefined, Undefined, Undefined)    # fg_178=✓construct.178, fg_179=✗construct.179 #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(316)/        if msg_token.shape[1] >= self.nxt_shuf_size:/#[CNode]180
+    %42 = %41() #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(316)/        if msg_token.shape[1] >= self.nxt_shuf_size:/#[CNode]181
+    %43 = FuncGraph::fg_182(%42)    #(Undefined)    # fg_182=↓construct.182 #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]183
+    %44 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%43, %19)    #(Undefined, Undefined) #scope: Default/layers-CellList/0-BasicLayer
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(400)/        if self.downsample is not None:/#[CNode]184
+    Primitive::Return{prim_type=1}(%44)    #(Undefined) #scope: Default/layers-CellList/0-BasicLayer/downsample-PatchMerging
+      # In file /home/zjl/code/MSG-Transformer/models/msg_transformer_mindspore.py(316)/        if msg_token.shape[1] >= self.nxt_shuf_size:/#[CNode]185
+}
+# order:
+#   1: construct.68:ΦH{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: ValueNode<ValueTuple> (56, 56), [2]: ValueNode<Int64Imm> 0}
+#   2: construct.68:ΦW{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: ValueNode<ValueTuple> (56, 56), [2]: ValueNode<Int64Imm> 1}
+#   3: construct.68:[CNode]149{[0]: ValueNode<Primitive> getattr, [1]: Φx, [2]: ValueNode<StringImm> shape}
+#   4: construct.68:B_{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]149, [2]: ValueNode<Int64Imm> 0}
+#   5: construct.68:shuf_size_2{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]149, [2]: ValueNode<Int64Imm> 1}
+#   6: construct.68:win_size_2{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]149, [2]: ValueNode<Int64Imm> 2}
+#   7: construct.68:C{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]149, [2]: ValueNode<Int64Imm> 3}
+#   8: construct.68:[CNode]150{[0]: ValueNode<DoSignaturePrimitive> S-Prim-pow, [1]: shuf_size_2, [2]: ValueNode<FP32Imm> 0.500000}
+#   9: construct.68:Φshuf_size{[0]: ValueNode<ClassType> class 'int', [1]: [CNode]150}
+#  10: construct.68:[CNode]152{[0]: ValueNode<DoSignaturePrimitive> S-Prim-pow, [1]: win_size_2, [2]: ValueNode<FP32Imm> 0.500000}
+#  11: construct.68:Φwin_size{[0]: ValueNode<ClassType> class 'int', [1]: [CNode]152}
+#  12: construct.68:[CNode]151{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: ΦH, [2]: Φshuf_size}
+#  13: construct.68:[CNode]153{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: [CNode]151, [2]: Φwin_size}
+#  14: construct.68:[CNode]154{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: B_, [2]: [CNode]153}
+#  15: construct.68:[CNode]155{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: ΦW, [2]: Φshuf_size}
+#  16: construct.68:[CNode]156{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: [CNode]155, [2]: Φwin_size}
+#  17: construct.68:B{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: [CNode]154, [2]: [CNode]156}
+#  18: construct.68:expand_dims{[0]: ValueNode<ClassType> class 'mindspore.ops.operations.array_ops.ExpandDims'}
+#  19: construct.68:[CNode]159{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  20: construct.68:[CNode]160{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  21: construct.68:[CNode]161{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]159, [2]: [CNode]160, [3]: ValueNode<Int64Imm> 0}
+#  22: construct.68:[CNode]162{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: Φx, [2]: [CNode]161}
+#  23: construct.68:temp{[0]: expand_dims, [1]: [CNode]162, [2]: ValueNode<Int64Imm> 2}
+#  24: construct.68:[CNode]163{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: ΦH, [2]: Φwin_size}
+#  25: construct.68:[CNode]164{[0]: ValueNode<DoSignaturePrimitive> S-Prim-floordiv, [1]: ΦW, [2]: Φwin_size}
+#  26: construct.68:[CNode]165{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: temp, [2]: ValueNode<Int64Imm> 1, [3]: Φshuf_size, [4]: [CNode]163, [5]: [CNode]164}
+#  27: construct.68:[CNode]166{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<StringImm> nchw}
+#  28: construct.68:[CNode]167{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<BoolImm> true}
+#  29: construct.68:[CNode]168{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_dict, [1]: [CNode]166, [2]: [CNode]167}
+#  30: construct.68:msg_token{[0]: ValueNode<UnpackCall> unpack_call.186, [1]: ValueNode<FuncGraph> window_reverse.169, [2]: [CNode]165, [3]: [CNode]168}
+#  31: construct.68:[CNode]171{[0]: ValueNode<FuncGraph> construct.170, [1]: msg_token}
+#  32: construct.68:[CNode]172{[0]: ValueNode<Primitive> getattr, [1]: [CNode]171, [2]: ValueNode<StringImm> transpose}
+#  33: construct.68:msg_token{[0]: [CNode]172, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<Int64Imm> 3, [4]: ValueNode<Int64Imm> 1}
+#  34: construct.68:msg_token{[0]: ValueNode<FuncGraph> construct.173, [1]: msg_token}
+#  35: construct.68:[CNode]174{[0]: ValueNode<Primitive> getattr, [1]: msg_token, [2]: ValueNode<StringImm> shape}
+#  36: construct.68:[CNode]175{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: [CNode]174, [2]: ValueNode<Int64Imm> 1}
+#  37: construct.68:[CNode]176{[0]: ValueNode<DoSignaturePrimitive> S-Prim-greater_equal, [1]: [CNode]175, [2]: ValueNode<Int64Imm> 4}
+#  38: construct.68:[CNode]177{[0]: ValueNode<FuncGraph> bool_.76, [1]: [CNode]176}
+#  39: construct.68:[CNode]180{[0]: ValueNode<Primitive> Switch, [1]: [CNode]177, [2]: ValueNode<FuncGraph> ✓construct.178, [3]: ValueNode<FuncGraph> ✗construct.179}
+#  40: construct.68:[CNode]181{[0]: [CNode]180}
+#  41: construct.68:[CNode]183{[0]: ValueNode<FuncGraph> ↓construct.182, [1]: [CNode]181}
+#  42: construct.68:[CNode]184{[0]: ValueNode<Primitive> Depend, [1]: [CNode]183, [2]: [CNode]158}
+#  43: construct.68:[CNode]185{[0]: ValueNode<Primitive> Return, [1]: [CNode]184}
+
+
+#===============================================================================
+# num of function graphs in stack: 13/16 (Ignored 3 internal frames).
