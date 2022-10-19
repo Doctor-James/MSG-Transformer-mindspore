@@ -178,6 +178,8 @@ class WindowAttention(nn.Cell):
         relative_position_bias = expand_dims(relative_position_bias,0)
         attn += relative_position_bias
 
+        cast = mindspore.ops.Cast()
+        attn = cast(attn, mindspore.float32)
         attn = self.softmax(attn)
         if (self.attn_drop != 0):
             attn = self.attn_drop(attn)

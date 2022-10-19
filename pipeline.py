@@ -1,6 +1,7 @@
 import mindspore as ms
 import mindspore.nn as nn
 import argparse
+import numpy as np
 
 
 from mindspore_.configs import get_config
@@ -24,8 +25,11 @@ def parse_option():
     return args, config
 
 def main(config):
-    download_train = Cifar10(path="./cifar", split="train", batch_size=2, repeat_num=1, shuffle=True, resize=224, download=False)
+    download_test = Cifar10(path="./cifar", split="test", batch_size=2, repeat_num=1, shuffle=True, resize=224, download=True)
+    download_train = Cifar10(path="./cifar", split="train", batch_size=2, repeat_num=1, shuffle=True, resize=224, download=True)
+
     dataset_train = download_train.run()
+    dataset_test = download_test.run()
 
     model = build_model(config)
     # 定义损失函数
@@ -34,13 +38,20 @@ def main(config):
     net_opt = nn.Momentum(model.trainable_params(), learning_rate=0.01, momentum=0.9)
 
     network = ms.Model(model, loss_fn=net_loss, optimizer=net_opt)
-    network.train(10, dataset_train)
+
+    #inference
+    ds_test = dataset_test.create_dict_iterator()
+    data = next(ds_test)
+    output = network.predict(data["image"])
+    print(output)
+
+    #train
+    # network.train(10, dataset_train)
 
 
 if __name__ == '__main__':
     _, config = parse_option()
-    ms.set_context(mode=ms.PYNATIVE_MODE, device_target="CPU")
-
+    ms.set_context(mode=ms.PYNATIVE_MODE, device_target="GPU")
 
     main(config)
 

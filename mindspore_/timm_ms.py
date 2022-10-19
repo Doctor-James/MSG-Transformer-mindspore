@@ -3,7 +3,6 @@ import mindspore.ops as ops
 import mindspore
 import math
 import warnings
-import scipy
 from scipy import special
 import numpy as np
 
@@ -17,14 +16,14 @@ def drop_path(x, drop_prob: float = 0., training: bool = False, scale_by_keep: b
     'survival rate' as the argument.
 
     """
+
+
     if drop_prob == 0. or not training:
         return x
     keep_prob = 1 - drop_prob
     shape = (x.shape[0],) + (1,) * (x.ndim - 1)  # work with diff dim tensors, not just 2D ConvNets
     x = mindspore.numpy.rand(shape)
-    temp = x.asnumpy()
-    random_tensor = scipy.stats.bernoulli(temp)
-    random_tensor = mindspore.Tensor(random_tensor.args[0], mindspore.float32)
+    random_tensor = ops.bernoulli(x)
     if keep_prob > 0.0 and scale_by_keep:
         random_tensor = ops.div(random_tensor,keep_prob)
     return x * random_tensor
@@ -80,9 +79,14 @@ def _trunc_normal_(tensor, mean, std, a, b):
 
     # Uniformly fill tensor with values from [l, u], then translate to
     # [2l-1, 2u-1].
-    # tensor = np.array(tensor, dtype=np.float32)
     tensor = tensor.asnumpy()
     tensor = np.random.uniform(2 * l - 1, 2 * u - 1, tensor.shape)
+
+    # minval = mindspore.Tensor(2 * l - 1, mindspore.float32)
+    # maxval = mindspore.Tensor(2 * u - 1, mindspore.float32)
+    #
+    # tensor = ops.uniform(tensor.shape, minval, maxval, seed=5, dtype=mindspore.float32)
+
 
     # Use inverse cdf transform for normal distribution to get truncated
     # standard normal
